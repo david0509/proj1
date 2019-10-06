@@ -104,7 +104,8 @@ int main(int argc, char *argv[])
   result = (char**) malloc(argc*4);
 	if ( inputValidation(argc, argv) )
     seekUserInput(argc, argv);
-
+	
+printf("%s", argv[0], argv[1], argv[2]);
 
   printf("%s\n", "System exit.");
 	system("pause");
