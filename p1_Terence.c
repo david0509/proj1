@@ -9,7 +9,9 @@ char ** result;
 
 char ** decimalToDecimal (int argc, char* argv[])
 {
-
+    int p = 1, r = argv[2];
+    
+    printf(%d, r);
 }
 
 char ** decimalToBinary (int argc, char* argv[])
