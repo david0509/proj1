@@ -9,62 +9,76 @@ char ** result;
 
 char ** decimalToDecimal (int argc, char* argv[])
 {
-    r = argv[2];
-    
-    printf(%d, r);
+    char *result = (char*)malloc(sizeof(char) * 100);
+
+    return result;
 }
 
 char ** decimalToBinary (int argc, char* argv[])
 {
-    int p = 1, r = argv[2];
+    char *result = (char*)malloc(sizeof(char) * 100);
 
-    char *bin = (char*)malloc(sizeof(char) * 100);
+    sprintf(argv[2], result, 2);
 
-    itoa(r, bin, 2);
-
-    return bin;
+    return result;
 }
 
 char ** decimalToHex (int argc, char* argv[])
 {
+    char *result = (char*)malloc(sizeof(char) * 100);
 
+    sprintf(argv[2], result, 16);
+
+    return result;
 }
 
 char ** binaryToDecimal(int argc, char* argv[])
 {
-    int p = 1, r = argv[2];
+	char **result = (char*)malloc(sizeof(char) * 100);
 
-	char *dec = (char*)malloc(sizeof(char) * 100);
+	sprintf(argv[2], result, 10);
 
-	itoa(r, dec, 10);
-
-	return dec;
+	return result;
 }
 
-char ** binaryToBinary (int argc, char* argv[]) {
+char ** binaryToBinary (int argc, char* argv[])
+{
+    char **result = (char*)malloc(sizeof(char) * 100);
 
+    return result;
 }
 
 char ** binaryToHex(int argc, char* argv[])
 
 {
-    int p = 1, r = argv[2];
+	char **result = (char*)malloc(sizeof(char) * 100);
 
-	char *hex = (char*)malloc(sizeof(char) * 100);
+	sprintf(argv[2], result, 16);
 
-	itoa(r, hex, 16);
-
-	return hex;
+	return result;
 }
 
-char ** hexToDecimal (int argc, char* argv[]) {
+char ** hexToDecimal (int argc, char* argv[])
+{
+    char **result = (char*)malloc(sizeof(char) * 100);
 
+    sprintf(argv[2], result, 10);
+
+    return result;
 }
-char ** hexToBinary (int argc, char* argv[]) {
+char ** hexToBinary (int argc, char* argv[])
+{
+    char **result = (char*)malloc(sizeof(char) * 100);
 
+    sprintf(argv[2], result, 2);
+
+    return result;
 }
-char ** hexToHex (int argc, char* argv[]) {
+char ** hexToHex (int argc, char* argv[])
+{
+    char **result = (char*)malloc(sizeof(char) * 100);
 
+    return result;
 }
 
 // Redirect to corresponding function
@@ -78,6 +92,8 @@ void seekUserInput(int argc, char* argv[]) {
   else if (strcmp(argv[0], "hex") && strcmp(argv[1], "decimal")) result = hexToDecimal(argc, argv);
   else if (strcmp(argv[0], "hex") && strcmp(argv[1], "binary")) result = hexToBinary(argc, argv);
   else if (strcmp(argv[0], "hex") && strcmp(argv[1], "hex")) result = hexToHex(argc, argv);
+
+  return result;
 }
 
 // Check if user input contains letters
@@ -96,7 +112,7 @@ bool inputValidation(int argc, char *argv[]) {
 
 int main(int argc, char *argv[])
 {
-	if (argc < 3) {
+	if (argc <= 3) {
 		printf("ERROR: You have to insert at least 3 argumetns.");
 		system("pause");
 		return 0;
@@ -104,10 +120,9 @@ int main(int argc, char *argv[])
   result = (char**) malloc(argc*4);
 	if ( inputValidation(argc, argv) )
     seekUserInput(argc, argv);
-	
-   printf("%s %s %s\n", argv[0], argv[1], argv[2]);
 
-  printf("%s\n", "System exit.");
+
+  printf("%x\n", result, "System exit.");
 	system("pause");
 	return 0;
 
